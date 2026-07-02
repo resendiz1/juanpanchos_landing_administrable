@@ -42,35 +42,31 @@
   <section id="inicio" class="p-0" style="padding-top:0!important;">
     <div id="heroCarousel" class="carousel slide carousel-fade" data-mdb-ride="carousel" data-mdb-interval="4000" style="min-height:100vh;">
       <div class="carousel-indicators">
-        <button type="button" data-mdb-target="#heroCarousel" data-mdb-slide-to="0" class="active"></button>
-        <button type="button" data-mdb-target="#heroCarousel" data-mdb-slide-to="1"></button>
-        <button type="button" data-mdb-target="#heroCarousel" data-mdb-slide-to="2"></button>
+        @foreach ($carouselItems as $i)
+          <button type="button" data-mdb-target="#heroCarousel" data-mdb-slide-to="{{ $loop->index }}" @class(['active' => $loop->first])></button>
+        @endforeach
       </div>
       <div class="carousel-inner" style="min-height:100vh;">
-        <div class="carousel-item active" style="min-height:100vh;">
-          <img src="img/desarrollo_web/Portada.jpeg" class="d-block w-100" style="height:100vh;object-fit:cover;">
-          <div class="carousel-caption">
-            <h1 class="display-3 fw-bold border border-4 border-white d-inline-block px-4 py-2">Desarrollo de software</h1>
-            <h2 class="display-5 fw-bold mt-3">Transformamos tu presencia digital.</h2>
-            <h3 class="fw-bold">Creamos páginas y aplicaciones web modernas, rápidas y optimizadas para atraer clientes y potenciar tu negocio.</h3>
+        @forelse ($carouselItems as $item)
+          <div class="carousel-item @if ($loop->first) active @endif" style="min-height:100vh;">
+            <img src="{{ asset('storage/' . $item->path_imagen) }}" class="d-block w-100" style="height:100vh;object-fit:cover;">
+            <div class="carousel-caption">
+              <h1 class="display-3 fw-bold border border-4 border-white d-inline-block px-4 py-2">{{ $item->titulo }}</h1>
+              @if ($item->subtitulo)
+                <h2 class="display-5 fw-bold mt-3">{{ $item->subtitulo }}</h2>
+              @endif
+              @if ($item->descripcion)
+                <h3 class="fw-bold">{{ $item->descripcion }}</h3>
+              @endif
+            </div>
           </div>
-        </div>
-        <div class="carousel-item" style="min-height:100vh;">
-          <img src="img/soporte/3.jpg" class="d-block w-100" style="height:100vh;object-fit:cover;">
-          <div class="carousel-caption">
-            <h1 class="display-3 fw-bold border border-4 border-white d-inline-block px-4 py-2">Soporte Técnico</h1>
-            <h2 class="display-5 fw-bold mt-3">Cuidamos tus equipos como si fueran nuestros.</h2>
-            <h3 class="fw-bold">Mantenimiento preventivo y correctivo, reparación, limpieza, formateo, actualización y recuperación de datos.</h3>
+        @empty
+          <div class="carousel-item active" style="min-height:100vh;">
+            <div style="height:100vh;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.02);">
+              <p style="color:rgba(255,255,255,0.3);">No hay items en el carrusel.</p>
+            </div>
           </div>
-        </div>
-        <div class="carousel-item" style="min-height:100vh;">
-          <img src="img/programas/solid.jpg" class="d-block w-100" style="height:100vh;object-fit:cover;">
-          <div class="carousel-caption">
-            <h1 class="display-3 fw-bold border border-4 border-white d-inline-block px-4 py-2">Instalación y Configuración de Software</h1>
-            <h2 class="display-5 fw-bold mt-3">Tu software, listo para trabajar.</h2>
-            <h3 class="fw-bold">Instalamos y configuramos sistemas operativos, antivirus, herramientas de oficina y software especializado para tu empresa.</h3>
-          </div>
-        </div>
+        @endforelse
       </div>
       <button class="carousel-control-prev" type="button" data-mdb-target="#heroCarousel" data-mdb-slide="prev"><span class="carousel-control-prev-icon"></span></button>
       <button class="carousel-control-next" type="button" data-mdb-target="#heroCarousel" data-mdb-slide="next"><span class="carousel-control-next-icon"></span></button>

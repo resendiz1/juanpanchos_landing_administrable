@@ -30,7 +30,7 @@
       border-left-color: #ffc238;
     }
     .admin-content {
-      padding: 2rem;
+      padding: 1.5rem !important;
       min-height: 100vh;
       background: #0d0d0d;
     }
@@ -110,6 +110,9 @@
           </a>
           <a class="nav-link {{ request()->routeIs('admin.mensajes.*') ? 'active' : '' }}" href="{{ route('admin.mensajes.index') }}">
             <i class="fas fa-envelope me-2"></i>Mensajes
+          </a>
+          <a class="nav-link {{ request()->routeIs('admin.carousel_items.*') ? 'active' : '' }}" href="{{ route('admin.carousel_items.index') }}">
+            <i class="fas fa-images me-2"></i>Carrusel
           </a>
           <a class="nav-link {{ request()->routeIs('admin.usuarios.*') ? 'active' : '' }}" href="{{ route('admin.usuarios.index') }}">
             <i class="fas fa-users me-2"></i>Usuarios

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Proyecto;
 use App\Models\NumerosContacto;
+use App\Models\CarouselItem;
 
 class InicioController extends Controller
 {
@@ -16,7 +17,8 @@ class InicioController extends Controller
             'imagenes' => $p->imagenes->map(fn($i) => asset('storage/' . $i->path_image))->values(),
         ])->keyBy('id');
         $numerosContacto = NumerosContacto::latest()->get();
+        $carouselItems = CarouselItem::latest()->get();
 
-        return view('inicio', compact('proyectos', 'proyectosJson', 'numerosContacto'));
+        return view('inicio', compact('proyectos', 'proyectosJson', 'numerosContacto', 'carouselItems'));
     }
 }

@@ -176,7 +176,7 @@
     .contact-card a { color:rgba(255,255,255,0.7);text-decoration:none;font-size:1.1rem; }
     .contact-card a:hover { color:#ffc238; }
 
-    .carousel-item img { filter:brightness(.5); }
+    #heroCarousel .carousel-item img { filter:brightness(.5); }
     .carousel-caption { bottom:50%;transform:translateY(50%); }
     .carousel-caption h1 { font-weight:800; }
     .carousel-caption h2 { font-weight:600; }

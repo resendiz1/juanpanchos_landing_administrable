@@ -8,6 +8,7 @@ use App\Http\Controllers\NumerosContactoController;
 use App\Http\Controllers\MensajeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\InicioController;
+use App\Http\Controllers\CarouselItemController;
 
 Route::get('/', function () {
     return redirect()->route('inicio');
@@ -29,4 +30,5 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('numeros_contacto', NumerosContactoController::class)->except('show');
     Route::resource('mensajes', MensajeController::class)->only(['index', 'show', 'destroy']);
     Route::resource('usuarios', UserController::class)->except('show');
+    Route::resource('carousel_items', CarouselItemController::class)->except('show');
 });
