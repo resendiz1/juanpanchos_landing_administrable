@@ -31,6 +31,7 @@ RUN COMPOSER_MEMORY_LIMIT=-1 composer install \
     --no-interaction \
     --prefer-dist \
     --optimize-autoloader
+    --no-dev
 
 
 
@@ -44,7 +45,9 @@ RUN COMPOSER_MEMORY_LIMIT=-1 composer install \
 RUN npm install
 RUN npm run build
 
-
+RUN php artisan config:clear || true
+RUN php artisan route:clear || true
+RUN php artisan view:clear || true
 
 
 RUN chmod -R 777 storage bootstrap/cache
