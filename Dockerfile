@@ -9,19 +9,20 @@ RUN apt-get update && apt-get install -y \
     libonig-dev \
     libxml2-dev \
     nodejs \
+    npm \
     libcurl4-openssl-dev \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install \
-        pdo \
-        pdo_mysql \
-        mbstring \
-        zip \
-        xml \
-        curl \
-        bcmath \
-        gd
+    pdo \
+    pdo_mysql \
+    mbstring \
+    zip \
+    xml \
+    curl \
+    bcmath \
+    gd
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
