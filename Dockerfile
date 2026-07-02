@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
     libpng-dev \
     libonig-dev \
     libxml2-dev \
+    nodejs \
     libcurl4-openssl-dev \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
