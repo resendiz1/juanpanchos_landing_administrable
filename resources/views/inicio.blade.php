@@ -391,6 +391,9 @@
 
       gsap.registerPlugin(ScrollTrigger);
 
+      // Refresh trigger positions after everything loads (fixes production layout shifts)
+      window.addEventListener('load', () => ScrollTrigger.refresh());
+
       // Navbar background on scroll
       ScrollTrigger.create({
         start: 'top -80px',
@@ -414,7 +417,7 @@
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: section, start: 'top 80%',
-            toggleActions: 'play none none reverse'
+            toggleActions: 'play none none none'
           }
         });
         if (title) tl.from(title, { y: 50, opacity: 0, duration: 0.8, ease: 'power3.out', immediateRender: false });
@@ -423,18 +426,18 @@
 
       // Soporte section split reveal
       gsap.from('#soporte .col-lg-6:first-child', {
-        scrollTrigger: { trigger: '#soporte', start: 'top 80%', toggleActions: 'play none none reverse' },
+        scrollTrigger: { trigger: '#soporte', start: 'top 80%', toggleActions: 'play none none none' },
         x: -60, opacity: 0, duration: 0.8, ease: 'power3.out', immediateRender: false
       });
       gsap.from('#soporte .col-lg-6:last-child', {
-        scrollTrigger: { trigger: '#soporte', start: 'top 80%', toggleActions: 'play none none reverse' },
+        scrollTrigger: { trigger: '#soporte', start: 'top 80%', toggleActions: 'play none none none' },
         x: 60, opacity: 0, duration: 0.8, ease: 'power3.out', immediateRender: false
       });
 
       // Glass cards fade-up
       gsap.utils.toArray('.glass-card').forEach(card => {
         gsap.from(card, {
-          scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'play none none reverse' },
+          scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'play none none none' },
           y: 60, opacity: 0, scale: 0.96, duration: 0.7, ease: 'power3.out', immediateRender: false
         });
       });
@@ -442,26 +445,26 @@
       // Project cards staggered
       gsap.utils.toArray('.project-card').forEach((card, i) => {
         gsap.from(card, {
-          scrollTrigger: { trigger: card, start: 'top 90%', toggleActions: 'play none none reverse' },
+          scrollTrigger: { trigger: card, start: 'top 90%', toggleActions: 'play none none none' },
           y: 50, opacity: 0, duration: 0.5, delay: (i % 3) * 0.08, ease: 'power3.out', immediateRender: false
         });
       });
 
       // Contact cards stagger
       gsap.from('.contact-card', {
-        scrollTrigger: { trigger: '#contacto .row.g-4', start: 'top 80%', toggleActions: 'play none none reverse' },
+        scrollTrigger: { trigger: '#contacto .row.g-4', start: 'top 80%', toggleActions: 'play none none none' },
         y: 60, opacity: 0, duration: 0.8, stagger: 0.15, ease: 'power3.out', immediateRender: false
       });
 
       // Logo items stagger
       gsap.from('.logo-item', {
-        scrollTrigger: { trigger: '.logo-item', start: 'top 85%', toggleActions: 'play none none reverse' },
+        scrollTrigger: { trigger: '.logo-item', start: 'top 85%', toggleActions: 'play none none none' },
         y: 40, opacity: 0, scale: 0.9, duration: 0.5, stagger: 0.08, ease: 'back.out(1.7)', immediateRender: false
       });
 
       // Contact form fade-up
       gsap.from('.glass-card form', {
-        scrollTrigger: { trigger: '#contacto .glass-card', start: 'top 82%', toggleActions: 'play none none reverse' },
+        scrollTrigger: { trigger: '#contacto .glass-card', start: 'top 82%', toggleActions: 'play none none none' },
         y: 40, opacity: 0, duration: 0.8, ease: 'power3.out', immediateRender: false
       });
 
