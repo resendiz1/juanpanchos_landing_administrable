@@ -32,8 +32,10 @@ class ProyectoController extends Controller
 
         if ($request->hasFile('imagenes')) {
             foreach ($request->file('imagenes') as $imagen) {
-                $path = $imagen->store('proyectos', 'public');
-                $proyecto->imagenes()->create(['path_image' => $path]);
+                if ($imagen && $imagen->isValid()) {
+                    $path = $imagen->store('proyectos', 'public');
+                    $proyecto->imagenes()->create(['path_image' => $path]);
+                }
             }
         }
 
@@ -58,8 +60,10 @@ class ProyectoController extends Controller
 
         if ($request->hasFile('imagenes')) {
             foreach ($request->file('imagenes') as $imagen) {
-                $path = $imagen->store('proyectos', 'public');
-                $proyecto->imagenes()->create(['path_image' => $path]);
+                if ($imagen && $imagen->isValid()) {
+                    $path = $imagen->store('proyectos', 'public');
+                    $proyecto->imagenes()->create(['path_image' => $path]);
+                }
             }
         }
 
