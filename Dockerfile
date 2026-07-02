@@ -31,7 +31,7 @@ COPY . .
 RUN COMPOSER_MEMORY_LIMIT=-1 composer install \
     --no-interaction \
     --prefer-dist \
-    --optimize-autoloader
+    --optimize-autoloader \
     --no-dev
 
 
