@@ -31,6 +31,21 @@ RUN COMPOSER_MEMORY_LIMIT=-1 composer install \
     --prefer-dist \
     --optimize-autoloader
 
+
+
+
+
+
+
+
+
+# Instalar dependencias JS y generar public/build/manifest.json
+RUN npm install
+RUN npm run build
+
+
+
+
 RUN chmod -R 777 storage bootstrap/cache
 
 CMD php artisan serve --host=0.0.0.0 --port=$PORT
