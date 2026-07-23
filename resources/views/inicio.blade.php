@@ -375,20 +375,52 @@
         <div class="col-md-4 text-center mb-3 mb-md-0">
           <span style="color:rgba(255,255,255,0.35);font-size:.9rem;">&copy; 2026 &lt;JuanPancho's/&gt;. Todos los derechos reservados.</span>
         </div>
-        <div class="col-md-4 text-center mb-3 mb-md-0 d-flex justify-content-center gap-3">
-          <a href="https://www.instagram.com/juanpanchos_tehuacan/" target="_blank" class="social-icon">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="https://www.facebook.com/profile.php?id=61577993078029" target="_blank" class="social-icon">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-        </div>
         <div class="col-md-4 text-center text-md-end">
           <span style="color:rgba(255,255,255,0.35);font-size:.85rem;">With <i class="fas fa-heart" style="color:#ffc238;"></i> by <a href="https://github.com/resendiz1" target="_blank" style="color:#ffc238;text-decoration:none;font-weight:600;">Arturo Resendiz</a></span>
         </div>
       </div>
     </div>
   </footer>
+
+  <div class="social-floating">
+    <a href="https://www.instagram.com/juanpanchos_tehuacan/" target="_blank" class="social-floating-link" style="background:#d62976;">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61577993078029" target="_blank" class="social-floating-link" style="background:#1877f2;">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </div>
+
+  <style>
+    .social-floating {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .social-floating-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 1.3rem;
+      text-decoration: none;
+      transition: all .3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    .social-floating-link:hover {
+      transform: scale(1.15);
+      color: #fff;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+    }
+  </style>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
