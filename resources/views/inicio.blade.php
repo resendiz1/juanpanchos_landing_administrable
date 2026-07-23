@@ -375,6 +375,14 @@
         <div class="col-md-4 text-center mb-3 mb-md-0">
           <span style="color:rgba(255,255,255,0.35);font-size:.9rem;">&copy; 2026 &lt;JuanPancho's/&gt;. Todos los derechos reservados.</span>
         </div>
+        <div class="col-md-4 text-center mb-3 mb-md-0 d-flex justify-content-center gap-3">
+          <a href="https://www.instagram.com/juanpanchos_tehuacan/" target="_blank" class="social-icon">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61577993078029" target="_blank" class="social-icon">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </div>
         <div class="col-md-4 text-center text-md-end">
           <span style="color:rgba(255,255,255,0.35);font-size:.85rem;">With <i class="fas fa-heart" style="color:#ffc238;"></i> by <a href="https://github.com/resendiz1" target="_blank" style="color:#ffc238;text-decoration:none;font-weight:600;">Arturo Resendiz</a></span>
         </div>
